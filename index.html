@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminomics - SolveForce Telecommunications Terminology & Economics Framework</title>
+    <meta name="description" content="Comprehensive telecommunications terminology framework integrating technical definitions, economic models, and industry standards for network infrastructure and enterprise connectivity.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .header-content nav {
+            justify-self: end;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .header-phone {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone:hover {
+            color: #764ba2;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .content {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .domain-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .domain-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card ul {
+            list-style: none;
+        }
+
+        .domain-card ul li {
+            padding: 0.4rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .domain-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .framework-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .framework-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .framework-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .framework-card p {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .glossary-section {
+            margin-bottom: 4rem;
+        }
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .glossary-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .glossary-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .glossary-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .economics-section {
+            margin-bottom: 4rem;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            color: #764ba2;
+        }
+
+        @media (max-width: 968px) {
+            .domains-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .framework-grid,
+            .glossary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .domains-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">SolveForce Terminomics</a>
+            <a href="tel:+18887658301" class="header-phone">(888) 765-8301</a>
+            <nav>
+                <a href="#domains">Domains</a>
+                <a href="#framework">Framework</a>
+                <a href="#glossary">Glossary</a>
+                <a href="#contact">Contact</a>
+                <a href="https://portal.solveforce.com">Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Telecommunications Terminology & Economics</h1>
+        <p>Comprehensive framework for understanding telecom terminology, network economics, and industry standards</p>
+        <div class="cta-buttons">
+            <a href="tel:+18887658301" class="btn btn-primary">Consult with Experts</a>
+            <a href="#domains" class="btn btn-secondary">Explore Domains</a>
+            <a href="https://solveforceapp.github.io/SolveForce.com/" class="btn btn-secondary">Documentation</a>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 id="domains">Telecommunications Knowledge Domains</h2>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <h3>Network Infrastructure</h3>
+                    <p>Technical terminology for fiber optic networks, copper infrastructure, and wireless systems</p>
+                    <ul>
+                        <li>Fiber types (SMF, MMF, OS2)</li>
+                        <li>Network topologies (ring, mesh, star)</li>
+                        <li>Transport protocols (SONET, SDH, OTN)</li>
+                        <li>Last-mile technologies</li>
+                        <li>Network architecture patterns</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card">
+                    <h3>Service Economics</h3>
+                    <p>Pricing models, cost structures, and economic frameworks for telecommunications services</p>
+                    <ul>
+                        <li>MRC/NRC pricing structures</li>
+                        <li>Usage-based billing models</li>
+                        <li>Capacity planning economics</li>
+                        <li>ROI calculations</li>
+                        <li>TCO analysis methodologies</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card">
+                    <h3>Protocol Standards</h3>
+                    <p>Industry standards, RFCs, and protocol specifications for telecommunications systems</p>
+                    <ul>
+                        <li>OSI model layers</li>
+                        <li>TCP/IP protocol suite</li>
+                        <li>VoIP signaling (SIP, H.323)</li>
+                        <li>MPLS label switching</li>
+                        <li>BGP routing standards</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card">
+                    <h3>Service Level Terminology</h3>
+                    <p>SLA metrics, performance guarantees, and quality of service parameters</p>
+                    <ul>
+                        <li>Uptime percentages (99.9%, 99.99%)</li>
+                        <li>Latency measurements</li>
+                        <li>Jitter specifications</li>
+                        <li>Packet loss thresholds</li>
+                        <li>MTTR/MTBF metrics</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card">
+                    <h3>Regulatory Framework</h3>
+                    <p>FCC regulations, telecommunications law, and compliance terminology</p>
+                    <ul>
+                        <li>Universal Service Fund (USF)</li>
+                        <li>CALEA compliance</li>
+                        <li>Net neutrality principles</li>
+                        <li>Spectrum licensing</li>
+                        <li>Interconnection agreements</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card">
+                    <h3>Cloud & Virtualization</h3>
+                    <p>Cloud computing terminology and network function virtualization concepts</p>
+                    <ul>
+                        <li>NFV architecture</li>
+                        <li>SDN control planes</li>
+                        <li>Virtual network functions</li>
+                        <li>Multi-tenant infrastructure</li>
+                        <li>Edge computing models</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="framework-section" id="framework">
+                <h2>Terminomics Framework</h2>
+                <p style="text-align: center; color: #555; margin-bottom: 2rem;">
+                    A systematic approach to telecommunications terminology integrating technical definitions, economic models, and strategic frameworks
+                </p>
+                <div class="framework-grid">
+                    <div class="framework-card">
+                        <h3>Definitional Layer</h3>
+                        <p><strong>Foundation:</strong> Precise technical definitions for telecommunications terms</p>
+                        <p><strong>Standards:</strong> IEEE, ITU-T, IETF, 3GPP specifications</p>
+                        <p><strong>Application:</strong> Unambiguous communication between engineers, vendors, and clients</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Economic Layer</h3>
+                        <p><strong>Foundation:</strong> Cost models and pricing frameworks for telecom services</p>
+                        <p><strong>Standards:</strong> Industry benchmarking and financial analysis</p>
+                        <p><strong>Application:</strong> Business case development and vendor negotiations</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Architectural Layer</h3>
+                        <p><strong>Foundation:</strong> Network design patterns and infrastructure topology</p>
+                        <p><strong>Standards:</strong> Best practices for resilience and scalability</p>
+                        <p><strong>Application:</strong> Enterprise network planning and deployment</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Operational Layer</h3>
+                        <p><strong>Foundation:</strong> Performance metrics and operational procedures</p>
+                        <p><strong>Standards:</strong> ITIL, TL9000, ISO/IEC 20000</p>
+                        <p><strong>Application:</strong> Service delivery and continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glossary-section" id="glossary">
+                <h2>Essential Telecommunications Glossary</h2>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <h4>MPLS (Multi-Protocol Label Switching)</h4>
+                        <p>Routing technique that directs data using short path labels rather than network addresses, enabling fast and efficient traffic engineering.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>SD-WAN (Software-Defined Wide Area Network)</h4>
+                        <p>Virtual WAN architecture allowing centralized control, application-aware routing, and transport independence across multiple connection types.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>Dark Fiber</h4>
+                        <p>Unused fiber optic cable infrastructure leased to customers who provide their own transmission equipment and manage the optical layer.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>Burstable Billing</h4>
+                        <p>Bandwidth pricing model based on the 95th percentile of usage, allowing temporary traffic spikes without overage charges.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>DIA (Dedicated Internet Access)</h4>
+                        <p>Symmetric internet connection with guaranteed bandwidth, SLA commitments, and dedicated fiber or wireless infrastructure.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>BGP (Border Gateway Protocol)</h4>
+                        <p>Path vector protocol managing routing between autonomous systems on the internet, enabling multi-homed network configurations.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>SIP Trunking</h4>
+                        <p>VoIP service connecting PBX systems to the PSTN using Session Initiation Protocol over IP networks, replacing traditional ISDN lines.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>Wavelength Services</h4>
+                        <p>Dedicated optical wavelength (lambda) on fiber infrastructure, providing point-to-point connectivity at Layer 1 for maximum bandwidth.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>Colocation (Colo)</h4>
+                        <p>Data center space rental providing power, cooling, and physical security for customer-owned telecommunications and IT equipment.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>Ethernet Private Line (EPL)</h4>
+                        <p>Point-to-point Ethernet connection providing dedicated bandwidth with Layer 2 transparency for enterprise applications.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>QoS (Quality of Service)</h4>
+                        <p>Traffic prioritization mechanisms ensuring performance for latency-sensitive applications like VoIP and video conferencing.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h4>MRC/NRC (Monthly/Non-Recurring Charges)</h4>
+                        <p>Telecommunications pricing structure separating ongoing subscription costs (MRC) from one-time installation fees (NRC).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="economics-section">
+                <h2>Telecommunications Economics</h2>
+                <div class="framework-grid">
+                    <div class="framework-card">
+                        <h3>Capital Expenditure (CapEx)</h3>
+                        <p>Network infrastructure investments including fiber deployment, equipment purchases, and data center construction requiring long-term ROI analysis.</p>
+                        <p><strong>Examples:</strong> Fiber optic cable installation, router/switch purchases, colocation buildouts</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Operating Expenditure (OpEx)</h3>
+                        <p>Ongoing telecommunications service costs including bandwidth fees, maintenance contracts, and managed services subscriptions.</p>
+                        <p><strong>Examples:</strong> Monthly internet circuit fees, cloud service subscriptions, NOC monitoring contracts</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Total Cost of Ownership (TCO)</h3>
+                        <p>Comprehensive financial analysis including CapEx, OpEx, support costs, and opportunity costs over the service lifecycle.</p>
+                        <p><strong>Components:</strong> Initial deployment, ongoing operations, upgrades, training, maintenance, end-of-life</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Service Economics Models</h3>
+                        <p>Pricing strategies balancing customer value with provider profitability including flat-rate, usage-based, and tiered models.</p>
+                        <p><strong>Models:</strong> Committed Information Rate (CIR), burstable billing, volume discounts, term commitments</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="framework-section">
+                <h2>Industry Standards & References</h2>
+                <div class="framework-grid">
+                    <div class="framework-card">
+                        <h3>Standards Organizations</h3>
+                        <p><strong>IEEE:</strong> Ethernet standards (802.3), wireless standards (802.11)</p>
+                        <p><strong>ITU-T:</strong> Telecommunications protocols, optical transport (G.709)</p>
+                        <p><strong>IETF:</strong> Internet protocols, RFCs for TCP/IP, routing, VoIP</p>
+                        <p><strong>3GPP:</strong> Cellular standards including 4G LTE and 5G NR</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Performance Metrics</h3>
+                        <p><strong>Availability:</strong> 99.9% (8.76 hrs/year) to 99.999% (5.26 min/year)</p>
+                        <p><strong>Latency:</strong> One-way delay measured in milliseconds</p>
+                        <p><strong>Throughput:</strong> Actual data transfer rate vs. provisioned bandwidth</p>
+                        <p><strong>Packet Loss:</strong> Percentage of packets not reaching destination</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Service Categories</h3>
+                        <p><strong>Layer 1:</strong> Dark fiber, wavelength services, optical transport</p>
+                        <p><strong>Layer 2:</strong> Ethernet private line, VPLS, Metro Ethernet</p>
+                        <p><strong>Layer 3:</strong> MPLS, IP VPN, SD-WAN, internet access</p>
+                        <p><strong>Applications:</strong> VoIP, unified communications, cloud connectivity</p>
+                    </div>
+
+                    <div class="framework-card">
+                        <h3>Deployment Models</h3>
+                        <p><strong>Point-to-Point:</strong> Dedicated connection between two locations</p>
+                        <p><strong>Point-to-Multipoint:</strong> Hub connecting to multiple spokes</p>
+                        <p><strong>Any-to-Any:</strong> Full mesh connectivity between all sites</p>
+                        <p><strong>Hybrid:</strong> Combination of dedicated, MPLS, and internet circuits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h3>Master Telecommunications Terminology & Economics</h3>
+        <p>Consult with our experts to optimize your telecommunications strategy and infrastructure decisions</p>
+        <div class="contact-info">
+            <a href="tel:+18887658301">(888) 765-8301</a>
+            <a href="mailto:consulting@solveforce.com">consulting@solveforce.com</a>
+            <a href="https://portal.solveforce.com">Portal</a>
+            <a href="https://solveforceapp.github.io/SolveForce.com/">Documentation</a>
+        </div>
+        <p>&copy; 2025 SolveForce. All rights reserved.</p>
+    </footer>
+</body>
+</html>
